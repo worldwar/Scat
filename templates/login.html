@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Illumez Login</title>
+	<link href="/static/css/themes/superhero/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/basic.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Please Login</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" action="/auth" method="post">
+							<input name="source" type="hidden" value="{{ source }}">
+
+							{% if error != None %}
+							<div class="alert alert-danger alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+								<h5>There were errors during registration:</h5>
+								<li>{{ error }}</li>
+							</div>
+							{% endif %}
+							<div class="form-group">
+								<input type="text" name="username" value="zhuran" class="form-control input-sm" placeholder="Username">
+							</div>
+
+							<div class="form-group">
+								<input type="password" name="password" value="123456" class="form-control input-sm" placeholder="Password">
+							</div>
+
+							<div class="checkbox">
+								<label class="full-width">
+									<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+								<a href="/forgot" class="pull-right">Forgot Password?</a>
+								</label>
+							</div>
+
+							<input type="submit" value="Login" class="btn btn-info btn-block">
+
+						</form>
+					</div>
+				</div>
+				<div class="text-center">
+					<a href="/register" >Don't have an account? Register</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.3.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
